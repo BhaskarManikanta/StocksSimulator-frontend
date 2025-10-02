@@ -1,0 +1,16 @@
+.symbol-selector {
+  margin: 10px 0 20px;
+}
+
+.symbol-selector label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.symbol-selector select {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid #3b82f6;
+  background: #121212;
+  color: #e5e7eb;
+}

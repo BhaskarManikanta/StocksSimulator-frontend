@@ -1,0 +1,46 @@
+.thresholds {
+  background: #1e1e2f;
+  padding: 20px;
+  border-radius: 10px;
+  color: #e5e7eb;
+}
+
+.add-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.add-form input,
+.add-form select {
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid #3b82f6;
+  background: #121212;
+  color: #e5e7eb;
+}
+
+.add-form button {
+  background: #3b82f6;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.add-form button:hover {
+  background: #2563eb;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #333;
+  padding: 8px;
+  text-align: center;
+}

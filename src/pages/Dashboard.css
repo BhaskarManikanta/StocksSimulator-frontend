@@ -1,0 +1,130 @@
+.dashboard {
+  display: flex;
+  background-color: #121212;
+  color: #e5e7eb;
+  height: 100vh;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.stocks-list {
+  background: #111827; /* dark background */
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.stocks-list h2 {
+  color: #f3f4f6;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.stocks-table {
+  overflow-x: auto;
+}
+
+.stocks-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1f2937; /* slightly lighter */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.stocks-table th,
+.stocks-table td {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.stocks-table th {
+  background: #374151;
+  color: #e5e7eb;
+  font-weight: 600;
+}
+
+.stocks-table td {
+  color: #d1d5db;
+}
+
+.stocks-table tr:nth-child(even) {
+  background: #2d3748;
+}
+
+.stocks-table tr:hover {
+  background: #4b5563;
+  transition: background 0.2s ease;
+}
+
+.stocks-table td:first-child {
+  font-weight: 700;
+  color: #60a5fa; /* bright blue for symbol */
+}
+
+.profile-page {
+  background: #111827;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.profile-page h2 {
+  color: #f3f4f6;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.profile-card {
+  background: #1f2937;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  min-width: 300px;
+  text-align: left;
+}
+
+.profile-card p {
+  color: #d1d5db;
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.profile-card strong {
+  color: #60a5fa; /* bright blue for labels */
+}
+
+.logout-btn {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: #ef4444;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
