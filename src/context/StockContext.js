@@ -53,18 +53,20 @@ export const StockProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    const socket = io("http://localhost:3001", {
+    const socket = io("http://13.60.89.123", {
       auth: { token: `Bearer ${localStorage.getItem("token")}` },
     });
 
     window.stockSocket = socket;
 
     socket.on("stock-price", (data) => {
+      console.log("Received price:", data);
       dispatch({ type: "NEW_PRICE", payload: data });
     });
 
     socket.on("stock-alert", (data) => {
       dispatch({ type: "NEW_ALERT", payload: data });
+      console.log("Received alert:", data);
     });
 
     return () => {
