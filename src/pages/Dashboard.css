@@ -1,130 +1,157 @@
-.dashboard {
-  display: flex;
-  background-color: #121212;
-  color: #e5e7eb;
-  height: 100vh;
+/* Dashboard.css */
+
+/* Remove default margins/padding and white around page */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  overflow-x: hidden; /* prevent horizontal scroll white space */
+  font-family: 'Poppins', sans-serif;
 }
 
+/* Dashboard container fills the screen */
+.dashboard {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background: none; /* inherit from body */
+  overflow: hidden;
+}
+
+/* Sidebar & main container */
 .main {
   flex: 1;
   display: flex;
   flex-direction: column;
-}
-
-.content {
-  flex: 1;
-  padding: 20px;
+  backdrop-filter: blur(12px);
+  padding: 1.5rem;
   overflow-y: auto;
 }
 
-.stocks-list {
-  background: #111827; /* dark background */
-  padding: 20px;
-  border-radius: 12px;
-  margin-top: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+/* Page content */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.stocks-list h2 {
-  color: #f3f4f6;
-  font-size: 20px;
+/* Page headings */
+h2 {
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 15px;
-  text-align: center;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.stocks-table {
-  overflow-x: auto;
+/* Symbol Selector */
+.SymbolSelector {
+  max-width: 300px;
+  margin-bottom: 1rem;
 }
 
+/* Glassmorphism cards */
+.StockChart, .alerts-panel, .stocks-list, .profile-card, .ThresholdsPage {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: none; /* removed shadow if you want fully flat */
+  transition: transform 0.3s ease;
+}
+
+/* Card hover animation */
+.StockChart:hover, .alerts-panel:hover, .stocks-list:hover, .profile-card:hover, .ThresholdsPage:hover {
+  transform: translateY(-5px);
+}
+
+/* Alerts Panel */
+.alerts-panel {
+  max-width: 400px;
+}
+
+.alerts-panel .alert-item {
+  background: rgba(255, 255, 255, 0.15);
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.alerts-panel .alert-item:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Stocks Table */
 .stocks-table table {
   width: 100%;
   border-collapse: collapse;
-  background: #1f2937; /* slightly lighter */
-  border-radius: 8px;
-  overflow: hidden;
+  color: #fff;
 }
 
-.stocks-table th,
-.stocks-table td {
-  padding: 12px 15px;
+.stocks-table th, .stocks-table td {
+  padding: 0.7rem 1rem;
   text-align: left;
-  font-size: 14px;
+  border: none; /* removed table borders */
 }
 
-.stocks-table th {
-  background: #374151;
-  color: #e5e7eb;
-  font-weight: 600;
-}
-
-.stocks-table td {
-  color: #d1d5db;
-}
-
-.stocks-table tr:nth-child(even) {
-  background: #2d3748;
+.stocks-table tr {
+  transition: background 0.2s ease;
+  cursor: pointer;
 }
 
 .stocks-table tr:hover {
-  background: #4b5563;
-  transition: background 0.2s ease;
+  background: rgba(255, 255, 255, 0.15);
 }
 
-.stocks-table td:first-child {
-  font-weight: 700;
-  color: #60a5fa; /* bright blue for symbol */
-}
-
-.profile-page {
-  background: #111827;
-  padding: 20px;
-  border-radius: 12px;
-  margin-top: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  text-align: center;
-}
-
-.profile-page h2 {
-  color: #f3f4f6;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
+/* Profile Card */
 .profile-card {
-  background: #1f2937;
-  padding: 20px;
-  border-radius: 10px;
-  display: inline-block;
-  min-width: 300px;
-  text-align: left;
-}
-
-.profile-card p {
-  color: #d1d5db;
-  margin: 10px 0;
-  font-size: 15px;
-}
-
-.profile-card strong {
-  color: #60a5fa; /* bright blue for labels */
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: none; /* removed shadow */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .logout-btn {
-  margin-top: 15px;
-  padding: 10px 15px;
-  background: #ef4444;
-  color: white;
-  font-weight: 600;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
   border: none;
-  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  color: #fff;
   cursor: pointer;
-  width: 100%;
-  transition: background 0.2s ease;
+  font-weight: 600;
+  transition: transform 0.2s ease;
 }
 
 .logout-btn:hover {
-  background: #dc2626;
+  transform: translateY(-3px);
 }
 
+/* Loader (if needed for charts) */
+.loader-small {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Remove default focus outline on buttons/inputs */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}

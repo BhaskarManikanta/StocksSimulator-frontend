@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import Dashboard from "./pages/Dashboard";
 import LoginPage from "./pages/LoginPage";
 import Register from "./pages/Register";
+import "./App.css";
 
 function App() {
   const { token } = useSelector((state) => state.auth);
@@ -13,7 +14,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="App">
       {showRegister ? (
         <Register onSwitchToLogin={() => setShowRegister(false)} />
       ) : (

@@ -110,7 +110,7 @@ const ThresholdsPage = ({ allStocks }) => {
               <td>{t.direction}</td>
               <td>{t.limit}</td>
               <td>
-                <button onClick={() => handleDelete(t)}>❌ Delete</button>
+                <button onClick={() => handleDelete(t)}> Delete</button>
               </td>
             </tr>
           ))}

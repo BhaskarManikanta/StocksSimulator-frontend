@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://13.60.89.123" });
+const API = axios.create({ baseURL: "https://stock-simulator-grtp.onrender.com" });
 
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem("token");
