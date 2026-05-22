@@ -1,58 +1,117 @@
+/* ================= PANEL ================= */
+
 .alerts-panel {
-  background: rgba(30, 30, 60, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(14px);
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-  color: #fff;
-  max-width: 450px;
-  margin: 20px auto;
-  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
-.alerts-panel:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+/* ================= HEADER ================= */
+
+.alerts-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .alerts-title {
-  font-size: 1.3rem;
-  background: linear-gradient(90deg, #8b5cf6, #ec4899, #06b6d4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 15px;
-  text-align: center;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
 }
 
-.no-alerts {
-  text-align: center;
-  color: #cbd5e1;
-  font-size: 0.95rem;
+.alerts-subtitle {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
 }
+
+.alerts-count {
+  min-width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: #ffffff;
+
+  font-weight: 700;
+}
+
+/* ================= EMPTY STATE ================= */
+
+.empty-alerts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 3rem 1rem;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.empty-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.empty-alerts p {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.empty-alerts span {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* ================= LIST ================= */
 
 .alerts-list {
   list-style: none;
   padding: 0;
   margin: 0;
+
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1rem;
 }
 
-.alert-item {
-  border-radius: 12px;
-  padding: 12px 15px;
-  font-size: 0.95rem;
+/* ================= ALERT CARD ================= */
+
+.alert-card {
+  padding: 1rem;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  transition: all 0.25s ease;
+}
+
+.alert-card:hover {
+  transform: translateY(-2px);
+
   background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.25s ease-in-out;
 }
 
-.alert-item:hover {
-  transform: scale(1.02);
-  background: rgba(255, 255, 255, 0.12);
-}
+/* ================= UP / DOWN ================= */
 
 .alert-up {
   border-left: 4px solid #22c55e;
@@ -62,14 +121,96 @@
   border-left: 4px solid #ef4444;
 }
 
+/* ================= HEADER ================= */
+
 .alert-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5px;
+
+  margin-bottom: 1rem;
 }
 
-.alert-limit {
-  color: #f9a8d4;
-  font-weight: 600;
+.alert-symbol-group {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.alert-symbol {
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+/* ================= INDICATOR ================= */
+
+.alert-indicator {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+}
+
+.alert-indicator.green {
+  background: #22c55e;
+}
+
+.alert-indicator.red {
+  background: #ef4444;
+}
+
+/* ================= TIME ================= */
+
+.alert-time {
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+/* ================= BODY ================= */
+
+.alert-body p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.92rem;
+}
+
+/* ================= PRICE BOXES ================= */
+
+.alert-prices {
+  display: flex;
+  gap: 0.8rem;
+
+  margin-top: 1rem;
+}
+
+.price-box {
+  flex: 1;
+
+  padding: 0.75rem;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.price-box span {
+  display: block;
+
+  font-size: 0.75rem;
+  color: #94a3b8;
+
+  margin-bottom: 0.3rem;
+}
+
+.price-box strong {
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .alert-prices {
+    flex-direction: column;
+  }
 }

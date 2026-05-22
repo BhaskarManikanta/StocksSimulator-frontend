@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import {
+  FaTachometerAlt,
+  FaChartLine,
+  FaBell,
+  FaUser,
+} from "react-icons/fa";
+
 import "./Sidebar.css";
-import { FaTachometerAlt, FaChartLine, FaBell, FaUser } from "react-icons/fa";
 
 const Sidebar = ({ onNavigate }) => {
   const [active, setActive] = useState("dashboard");
@@ -10,39 +16,66 @@ const Sidebar = ({ onNavigate }) => {
     onNavigate(page);
   };
 
+  const menuItems = [
+    {
+      key: "dashboard",
+      label: "Dashboard",
+      icon: <FaTachometerAlt />,
+    },
+    {
+      key: "stocks",
+      label: "Stocks",
+      icon: <FaChartLine />,
+    },
+    {
+      key: "thresholds",
+      label: "Thresholds",
+      icon: <FaBell />,
+    },
+    {
+      key: "profile",
+      label: "Profile",
+      icon: <FaUser />,
+    },
+  ];
+
   return (
-    <div className="sidebar">
+    <aside className="sidebar">
+      {/* LOGO */}
       <div className="sidebar-header">
-        <h2 className="sidebar-logo">📈 StockSim</h2>
+        <div className="logo-wrapper">
+          <span className="logo-icon">📈</span>
+          <div>
+            <h2>StockSim</h2>
+            <p>Live Market Monitor</p>
+          </div>
+        </div>
       </div>
 
-      <ul className="sidebar-menu">
-        <li
-          className={active === "dashboard" ? "active" : ""}
-          onClick={() => handleClick("dashboard")}
-        >
-          <FaTachometerAlt /> <span>Dashboard</span>
-        </li>
-        <li
-          className={active === "stocks" ? "active" : ""}
-          onClick={() => handleClick("stocks")}
-        >
-          <FaChartLine /> <span>Stocks</span>
-        </li>
-        <li
-          className={active === "thresholds" ? "active" : ""}
-          onClick={() => handleClick("thresholds")}
-        >
-          <FaBell /> <span>Thresholds</span>
-        </li>
-        <li
-          className={active === "profile" ? "active" : ""}
-          onClick={() => handleClick("profile")}
-        >
-          <FaUser /> <span>Profile</span>
-        </li>
-      </ul>
-    </div>
+      {/* MENU */}
+      <nav className="sidebar-nav">
+        {menuItems.map((item) => (
+          <button
+            key={item.key}
+            className={`sidebar-item ${
+              active === item.key ? "active" : ""
+            }`}
+            onClick={() => handleClick(item.key)}
+          >
+            <span className="sidebar-icon">{item.icon}</span>
+
+            <span className="sidebar-label">
+              {item.label}
+            </span>
+          </button>
+        ))}
+      </nav>
+
+      {/* FOOTER */}
+      <div className="sidebar-footer">
+        <p>Realtime Stock Simulator</p>
+      </div>
+    </aside>
   );
 };
 

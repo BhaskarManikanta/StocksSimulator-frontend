@@ -1,157 +1,349 @@
-/* Dashboard.css */
+/* ================= GLOBAL ================= */
 
-/* Remove default margins/padding and white around page */
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #1f1c2c, #928dab);
-  overflow-x: hidden; /* prevent horizontal scroll white space */
-  font-family: 'Poppins', sans-serif;
+  min-height: 100%;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  overflow-x: hidden;
+  color: #ffffff;
 }
 
-/* Dashboard container fills the screen */
-.dashboard {
+/* ================= DASHBOARD LAYOUT ================= */
+
+.dashboard-layout {
   display: flex;
+  min-height: 100vh;
   width: 100%;
-  height: 100%;
-  color: #fff;
-  background: none; /* inherit from body */
-  overflow: hidden;
 }
 
-/* Sidebar & main container */
-.main {
+/* ================= MAIN CONTENT ================= */
+
+.dashboard-main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  backdrop-filter: blur(12px);
-  padding: 1.5rem;
+  padding: 1.5rem 2rem;
   overflow-y: auto;
 }
 
-/* Page content */
-.content {
+/* ================= PAGE CONTENT ================= */
+
+.dashboard-content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.8rem;
+  margin-top: 1rem;
 }
 
-/* Page headings */
-h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  background: linear-gradient(90deg, #ff8a00, #e52e71);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* ================= PAGE HEADER ================= */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Symbol Selector */
-.SymbolSelector {
-  max-width: 300px;
+.page-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.page-header p {
+  margin-top: 0.4rem;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+/* ================= DASHBOARD GRID ================= */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* ================= CARD ================= */
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 1.5rem;
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
 }
 
-/* Glassmorphism cards */
-.StockChart, .alerts-panel, .stocks-list, .profile-card, .ThresholdsPage {
+.card-header h2,
+.card-header h3 {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ================= SYMBOL SELECTOR ================= */
+
+.dashboard-topbar {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.dashboard-topbar select {
+  min-width: 280px;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: none;
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
-  padding: 1.5rem;
-  box-shadow: none; /* removed shadow if you want fully flat */
-  transition: transform 0.3s ease;
+  color: #ffffff;
+  font-size: 0.95rem;
+  backdrop-filter: blur(10px);
 }
 
-/* Card hover animation */
-.StockChart:hover, .alerts-panel:hover, .stocks-list:hover, .profile-card:hover, .ThresholdsPage:hover {
-  transform: translateY(-5px);
+.dashboard-topbar select option {
+  background: #1e293b;
+  color: white;
 }
 
-/* Alerts Panel */
+/* ================= STOCK CHART ================= */
+
+.chart-card {
+  min-height: 420px;
+}
+
+/* ================= ALERTS PANEL ================= */
+
+.alerts-card {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
 .alerts-panel {
-  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
-.alerts-panel .alert-item {
-  background: rgba(255, 255, 255, 0.15);
-  margin-bottom: 0.5rem;
-  padding: 0.5rem 0.8rem;
-  border-radius: 10px;
-  transition: background 0.2s ease;
+.alert-item {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  transition: all 0.2s ease;
 }
 
-.alerts-panel .alert-item:hover {
-  background: rgba(255, 255, 255, 0.3);
+.alert-item:hover {
+  background: rgba(255, 255, 255, 0.14);
 }
 
-/* Stocks Table */
-.stocks-table table {
+/* ================= STOCKS TABLE ================= */
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.stocks-table {
   width: 100%;
   border-collapse: collapse;
-  color: #fff;
 }
 
-.stocks-table th, .stocks-table td {
-  padding: 0.7rem 1rem;
+.stocks-table thead {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.stocks-table th {
+  padding: 1rem;
   text-align: left;
-  border: none; /* removed table borders */
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #f8fafc;
 }
 
-.stocks-table tr {
-  transition: background 0.2s ease;
-  cursor: pointer;
+.stocks-table td {
+  padding: 1rem;
+  color: #cbd5e1;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.stocks-table tr:hover {
-  background: rgba(255, 255, 255, 0.15);
+.stocks-table tbody tr {
+  transition: all 0.2s ease;
 }
 
-/* Profile Card */
+.stocks-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ================= PROFILE ================= */
+
+.profile-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 .profile-card {
-  max-width: 400px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
-  border-radius: 20px;
-  box-shadow: none; /* removed shadow */
+  width: 100%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 2rem;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.profile-header {
+  margin-bottom: 1.5rem;
+}
+
+.profile-header h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.profile-info {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.profile-row span {
+  color: #cbd5e1;
+}
+
+.profile-row strong {
+  color: #ffffff;
+}
+
+.active-status {
+  color: #22c55e;
+}
+
+/* ================= LOGOUT BUTTON ================= */
+
 .logout-btn {
-  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  margin-top: 1.8rem;
+  width: 100%;
+  padding: 0.9rem 1rem;
   border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 12px;
-  color: #fff;
-  cursor: pointer;
+  border-radius: 14px;
+  font-size: 1rem;
   font-weight: 600;
-  transition: transform 0.2s ease;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #f97316, #ec4899);
+  transition: all 0.25s ease;
 }
 
 .logout-btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  opacity: 0.92;
 }
 
-/* Loader (if needed for charts) */
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+}
+
+/* ================= LOADER ================= */
+
 .loader-small {
-  width: 20px;
-  height: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-top: 3px solid #fff;
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top: 3px solid #ffffff;
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+  animation: spin 0.7s linear infinite;
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* Remove default focus outline on buttons/inputs */
-button:focus,
-input:focus,
-select:focus,
-textarea:focus {
+/* ================= INPUTS ================= */
+
+button,
+input,
+select,
+textarea {
   outline: none;
+  font-family: inherit;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .alerts-card {
+    max-height: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-main {
+    padding: 1rem;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .dashboard-topbar {
+    width: 100%;
+  }
+
+  .dashboard-topbar select {
+    width: 100%;
+  }
+
+  .profile-card {
+    padding: 1.5rem;
+  }
 }

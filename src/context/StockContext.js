@@ -53,7 +53,7 @@ export const StockProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    const socket = io("https://stock-simulator-grtp.onrender.com", {
+    const socket = io("http://13.205.182.80:3000", {
       auth: { token: `Bearer ${localStorage.getItem("token")}` },
     });
 

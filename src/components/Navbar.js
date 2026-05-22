@@ -1,31 +1,56 @@
 import React from "react";
 import "./Navbar.css";
-import { FaBell, FaUserCircle, FaSignOutAlt, FaChartLine } from "react-icons/fa";
 
-const Navbar = ({ user, onLogout }) => {
+const Navbar = ({ user }) => {
   return (
     <nav className="navbar">
-      <div className="navbar-left">
-        <FaChartLine className="navbar-logo" />
-        <h2 className="navbar-title">StockPulse</h2>
-      </div>
 
-      <div className="navbar-center">
-        <div className="navbar-user-info">
-          <FaUserCircle className="user-icon" />
-          <span>{user?.email || "Guest User"}</span>
+      {/* LEFT */}
+      <div className="navbar-left">
+        <div className="navbar-brand">
+          <div className="logo-circle">📈</div>
+
+          <div>
+            <h2>StockPulse</h2>
+            <p>Realtime Market Dashboard</p>
+          </div>
         </div>
       </div>
 
+      {/* CENTER */}
+      <div className="navbar-center">
+        <div className="market-status">
+          <div className="live-dot"></div>
+
+          <span>Market Active</span>
+        </div>
+      </div>
+
+      {/* RIGHT */}
       <div className="navbar-right">
+
         <button className="icon-button">
-          <FaBell />
+          🔔
           <span className="notif-dot"></span>
         </button>
 
-        <button className="logout-btn" onClick={onLogout}>
-          <FaSignOutAlt /> <span>Logout</span>
-        </button>
+        <div className="navbar-user">
+
+          <div className="user-avatar">
+            {user?.email?.charAt(0).toUpperCase() || "G"}
+          </div>
+
+          <div className="user-details">
+            <span className="welcome-text">
+              Welcome Back
+            </span>
+
+            <strong>
+              {user?.email || "Guest User"}
+            </strong>
+          </div>
+        </div>
+
       </div>
     </nav>
   );
