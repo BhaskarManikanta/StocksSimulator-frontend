@@ -74,19 +74,19 @@ docker run -d -p 80:80 bhaskar9999/stock-frontend:latest
 
 # Screenshots
 
-## Home Page
+## Dashboard Page
 
 ![Home](./screenshots/Dashboard.png)
 
 ---
 
-## Live Dashboard
+## Threshold Page
 
 ![Dashboard](./screenshots/ThresholdPage.png)
 
 ---
 
-## Threshold Alerts
+## Profile Page
 
 ![Alerts](./screenshots/Profile.png)
 
