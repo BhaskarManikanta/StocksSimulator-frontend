@@ -101,10 +101,10 @@ The frontend is containerized using Docker and deployed on AWS EC2 using Nginx.
 # Future Improvements
 
 - Advanced stock charts
-- Dark mode
 - Notification center
-- Mobile responsiveness improvements
 
+---
+Backend repo: [https://github.com/BhaskarManikanta/StocksSimulator]
 ---
 
 # Author
